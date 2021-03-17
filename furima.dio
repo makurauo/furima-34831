@@ -96,7 +96,7 @@
                 <mxCell id="63" value="phone_number" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;align=center;fontColor=#1A1A1A;" vertex="1" parent="56">
                     <mxGeometry y="176" width="240" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="88" value="purchases(references)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;align=center;fontColor=#1A1A1A;" vertex="1" parent="56">
+                <mxCell id="88" value="purchase(references)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;align=center;fontColor=#1A1A1A;" vertex="1" parent="56">
                     <mxGeometry y="206" width="240" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="74" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;strokeWidth=4;entryX=0;entryY=0.5;entryDx=0;entryDy=0;targetPerimeterSpacing=0;startArrow=ERone;startFill=0;labelBackgroundColor=#EEEEEE;strokeColor=#182E3E;fontColor=#1A1A1A;" edge="1" parent="1" target="48">
