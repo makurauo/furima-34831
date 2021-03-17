@@ -27,7 +27,7 @@
 | text          | text       | null: false       |
 | category_id   | integer    | null: false       |
 | condition_id  | integer    | null: false       |
-| charges_id    | integer    | null: false       |
+| charge_id     | integer    | null: false       |
 | prefecture_id | integer    | null: false       |
 | delivery_id   | integer    | null: false       |
 | price         | integer    | null: false       |
@@ -58,7 +58,7 @@
 | prefecture_id | integer    | null: false       |
 | city          | string     | null: false       |
 | block         | string     | null: false       |
-| building      | string     | null: false       |
+| building      | string     |                   |
 | phone_number  | string     | null: false       |
 | purchase      | references | foreign_key: true |
 
