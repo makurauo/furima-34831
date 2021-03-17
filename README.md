@@ -2,18 +2,17 @@
 
 ## usersテーブル
 
-| Column          | Type   | Options  |
-| --------------- | ------ | -------- |
-| email           | string | NOT NULL | 
-| password        | string | NOT NULL | 
-| nick_name       | string | NOT NULL |
-| last_name       | string | NOT NULL | 
-| first_name      | string | NOT NULL | 
-| last_name_kana  | string | NOT NULL | 
-| first_name_kana | string | NOT NULL | 
-| birth_year      | date   | NOT NULL |
-| birth_month     | date   | NOT NULL |
-| birth_day       | date   | NOT NULL |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| email              | string | null: false, unique: true | 
+| encrypted_password | string | null: false               | 
+| nick_name          | string | null: false               |
+| last_name          | string | null: false               | 
+| first_name         | string | null: false               | 
+| last_name_kana     | string | null: false               | 
+| first_name_kana    | string | null: false               | 
+| birthday           | date   | null: false               |
+
 
 ### Association
 
@@ -24,15 +23,14 @@
 
 | Column        | Type       | Options           |
 | ------------- | ---------- | ----------------- |
-| name          | string     | NOT NULL          |
-| text          | text       | NOT NULL          |
-| category_id   | integer    | NOT NULL          |
-| condition_id  | integer    | NOT NULL          |
-| charges_id    | integer    | NOT NULL          |
-| prefecture_id | integer    | NOT NULL          |
-| delivery_id   | integer    | NOT NULL          |
-| price         | integer    | NOT NULL          |
-| image         |            |                   |
+| name          | string     | null: false       |
+| text          | text       | null: false       |
+| category_id   | integer    | null: false       |
+| condition_id  | integer    | null: false       |
+| charges_id    | integer    | null: false       |
+| prefecture_id | integer    | null: false       |
+| delivery_id   | integer    | null: false       |
+| price         | integer    | null: false       |
 | user          | references | foreign_key: true |
 
 ### Association
@@ -48,19 +46,21 @@
 | item    | references | foreign_key: true |
 
 ### Association
+- belongs_to :user
 - belongs_to :item
-- has_ome :address
+- has_one :address
 
 ## addressesテーブル
 
-| Column        | Type    | Options  |
-| ------------- | ------- | -------- |
-| postcode      | string  | NOT NULL |
-| prefecture_id | integer | NOT NULL |
-| city          | string  | NOT NULL |
-| block         | string  | NOT NULL |
-| building      | string  | NOT NULL |
-| phone_number  | integer | NOT NULL |
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
+| postcode      | string     | null: false       |
+| prefecture_id | integer    | null: false       |
+| city          | string     | null: false       |
+| block         | string     | null: false       |
+| building      | string     | null: false       |
+| phone_number  | string     | null: false       |
+| purchase      | references | foreign_key: true |
 
 ### Association
 - belong_to :purchase
