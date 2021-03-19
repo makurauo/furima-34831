@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :password, format: { with: /\A[a-z0-9]{8,}+\z/i, message: 'is invalid. Input half-width characters.' }
+    validates :password, format: { with: /\A[a-z0-9]{6,}+\z/i, message: 'is invalid. Input half-width characters.' }
     validates :nick_name
     validates :birthday
     validates :email
