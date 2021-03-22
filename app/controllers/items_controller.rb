@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: :index
 
   def index
-    @item = Item.order("category_at DESC")
+    @item = Item.order('category_at DESC')
   end
 
   def new
@@ -20,7 +21,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :condition_id,:charge_id, :prefecture_id, :delivery_id, :price, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :text, :category_id, :condition_id, :charge_id, :prefecture_id, :delivery_id, :price,
+                                 :image).merge(user_id: current_user.id)
   end
-
 end

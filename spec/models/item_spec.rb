@@ -18,10 +18,10 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
       it 'nameが40字以上では出品できない' do
-        @item.name = ("a" * 41)
+        @item.name = ('a' * 41)
         @item.valid?
 
-        expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
+        expect(@item.errors.full_messages).to include('Name is too long (maximum is 40 characters)')
       end
       it 'textがないと出品できない' do
         @item.text = ''
@@ -29,9 +29,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Text can't be blank")
       end
       it 'textが1,000文字以上では出品できない' do
-        @item.text = ("a" * 1001)
+        @item.text = ('a' * 1001)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Text is too long (maximum is 1000 characters)")
+        expect(@item.errors.full_messages).to include('Text is too long (maximum is 1000 characters)')
       end
       it 'category_idがないと出品できない' do
         @item.category_id = 1
@@ -78,15 +78,15 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
-      it "priceが半角英数混合では出品できないこと" do
-        @item.price = "1000yen"
+      it 'priceが半角英数混合では出品できないこと' do
+        @item.price = '1000yen'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
-      it "priceが半角英語だけでは出品できないこと" do
-        @item.price = "thousand"
+      it 'priceが半角英語だけでは出品できないこと' do
+        @item.price = 'thousand'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
       it 'imageがないと出品できない' do
         @item.image = nil
