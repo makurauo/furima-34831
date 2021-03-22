@@ -4,12 +4,24 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
+  belongs_to :condition
+  belongs_to :charge
+  belongs_to :prefecture
+  belongs_to :delivery
 
-  validates :name, :text, presence: true
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :text 
+    validates :user
+    validates :price, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
+  end
+  with_options numericality: { other_than: 1 } do
+    validates :category_id 
+    validates :condition_id 
+    validates :charge_id 
+    validates :prefecture_id  
+    validates :delivery_id 
+  end
 
-  validates :category_id, numericality: { other_than: 1 }
-  validates :condition_id, numericality: { other_than: 1 }
-  validates :charge_id, numericality: { other_than: 1 }
-  validates :prefecture_id, numericality: { other_than: 48 }
-  validates :delivery_id, numericality: { other_than: 1 }
 end
