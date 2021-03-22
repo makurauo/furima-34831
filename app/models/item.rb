@@ -11,8 +11,8 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :image
-    validates :name
-    validates :text 
+    validates :name, length: { maximum: 40 }
+    validates :text, length: { maximum: 1_000 }
     validates :user
     validates :price, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
   end
@@ -23,5 +23,5 @@ class Item < ApplicationRecord
     validates :prefecture_id  
     validates :delivery_id 
   end
-
+  validates :price, numericality: true
 end
