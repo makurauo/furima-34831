@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_tweet, only: [:show, :edit, :update]
+  before_action :set_redirect, only: [:edit, :update]
 
   def index
     @items = Item.order('created_at DESC')
@@ -43,8 +44,12 @@ class ItemsController < ApplicationController
                                  :image).merge(user_id: current_user.id)
   end
 
-def set_tweet
-  @item = Item.find(params[:id])
-end
+  def set_tweet
+    @item = Item.find(params[:id])
+  end
+
+  def set_redirect
+    redirect_to root_path unless current_user.id == @item.user_id
+  end
 
 end
