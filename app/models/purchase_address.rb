@@ -2,9 +2,6 @@ class PurchaseAddress
   include ActiveModel::Model
   attr_accessor :token, :user_id, :item_id, :postcode, :prefecture_id, :city, :block, :building, :phone_number, :purchase_id
 
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to :prefecture
-
   with_options presence: true do
     validates :user_id
     validates :item_id
